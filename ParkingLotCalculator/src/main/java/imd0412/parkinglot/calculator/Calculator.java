@@ -26,11 +26,11 @@ public class Calculator {
 		Date check_out = null;
 		
 		// Diff variables
-		String diff_year = "";
-		String diff_month = "";
-		String diff_day = "";
-		String diff_hour = "";
-		String diff_minute = "";
+		float diff_year = 0;
+		float diff_month = 0;
+		float diff_day = 0;
+		float diff_hour = 0;
+		float diff_minute = 0;
 		
 		// Calculated price
 		float calculated_price = 0;
@@ -78,11 +78,11 @@ public class Calculator {
 		// Split the difference into sections
 		Matcher matcher = Constants.DATE_PATTERN.matcher(duration);
 		if (matcher.find()) {
-			diff_year = matcher.group(1);
-			diff_month = matcher.group(2);
-			diff_day = matcher.group(3);
-			diff_hour = matcher.group(4);
-			diff_minute = matcher.group(5);
+			diff_year = Float.parseFloat(matcher.group(1));
+			diff_month = Float.parseFloat(matcher.group(2));
+			diff_day = Float.parseFloat(matcher.group(3));
+			diff_hour = Float.parseFloat(matcher.group(4));
+			diff_minute = Float.parseFloat(matcher.group(5));
 		}
 		
 		// ==========================================================================================
@@ -95,6 +95,14 @@ public class Calculator {
 			// (I) ShortTerm: use just for a few hours
 			// ==========================================================================================
 			case ShortTerm:
+				
+				System.out.println("\nDiferença: ");
+				System.out.println("\tAno\t" + diff_year);
+				System.out.println("\tMês\t" + diff_month);
+				System.out.println("\tDia\t" + diff_day);
+				System.out.println("\tHora\t" + diff_hour);
+				System.out.println("\tMin\t" + diff_minute);
+				
 				break;
 			// ==========================================================================================
 			// (II) LongTerm: use for more than few hours, maybe some days
