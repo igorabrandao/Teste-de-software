@@ -103,6 +103,60 @@ public class Calculator {
 				System.out.println("\tHora\t" + diff_hour);
 				System.out.println("\tMin\t" + diff_minute);
 				
+				// Calculation of short term tax (business rule)
+				
+				// Days
+				if (diff_day > 7) {
+					// In the first week, each day tax costs R$50,00
+					calculated_price += (7 * 50);
+					
+					// After the first week, the tax cost lows to R$30,00
+					calculated_price += ((diff_day - 7) * 30);
+					
+					// Add the value per hour (without the first hour)
+					calculated_price += (((diff_day * 24) - 1) * 2);
+					
+					// First hour costs R$8,00
+					calculated_price += 8;
+				}
+				else if (diff_day > 0) {
+					// Just the usual price per day R$50,00
+					calculated_price += (diff_day * 50);
+					
+					// Add the value per hour (without the first hour)
+					calculated_price += (((diff_day * 24) - 1) * 2);
+					
+					// First hour costs R$8,00
+					calculated_price += 8;
+				}
+				
+				// Hours
+				if (diff_day == 0) {
+					if (diff_hour > 1) {
+						// First hour costs R$8,00
+						calculated_price += 8;
+						
+						// The other ones R$2,00
+						calculated_price += ((diff_hour - 1) * 2);
+					} else {
+						// First hour costs R$8,00
+						calculated_price += diff_hour * 8;
+					}
+				} else {
+					// The first hour was already charged
+					calculated_price += (diff_hour * 2);
+				}
+				
+				// Minutes
+				if (diff_minute > 0 && diff_hour == 0) {
+					// In this case, the customer stayed less than 1 hour
+					calculated_price += 8;
+				}
+				else if (diff_minute > 0 && diff_hour > 0) {
+					// The customer already paid the first our, so this is an extra hour
+					calculated_price += 2;
+				}
+				
 				break;
 			// ==========================================================================================
 			// (II) LongTerm: use for more than few hours, maybe some days

@@ -10,9 +10,14 @@ public class CalculatorDrive {
 		// Create an object of Calculator
 		Calculator calc = new Calculator();
 		
+		// Price variable
+		float price = 0;
+		
 		// Run some instances of Calculator
 		try {
-			calc.calculateParkingCost("2017.08.28 12:30", "2017.08.28 13:45", ParkingLotType.ShortTerm);
+			price = calc.calculateParkingCost("2017.08.28 12:30", "2017.08.31 07:10", ParkingLotType.ShortTerm);
+			
+			System.out.println("The calculated price is:\t R$" + price);
 		} catch (DateFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
