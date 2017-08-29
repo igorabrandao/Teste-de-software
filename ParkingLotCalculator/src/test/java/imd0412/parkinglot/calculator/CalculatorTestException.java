@@ -3,8 +3,9 @@ package imd0412.parkinglot.calculator;
 import java.util.Arrays;
 import java.util.Collection;
 
+import org.junit.Rule;
 import org.junit.Test;
-import org.junit.Assert;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -15,12 +16,15 @@ import imd0412.parkinglot.exception.InvalidDataException;
 
 @RunWith(value = Parameterized.class)
 public class CalculatorTestException {
+	
+	@Rule
+	public final ExpectedException exception = ExpectedException.none();
 
 	// Parameterized test attributes
 	private String checkin;
 	private String checkout;
 	private ParkingLotType type;
-	private Exception expectedException;
+	public Class<? extends Exception> expectedException;
 	
 	@Parameters
 	public static Collection<Object[]> data() {
@@ -31,7 +35,7 @@ public class CalculatorTestException {
 			{"2011.02.31 11:00", "2011.02.31 13:10", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 14
 			{"2015.04.31 06:25", "2015.04.31 09:30", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 15
 			{"2017.08.01 16:30", "2017.07.30 19:36", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 16
-			{"28.08.2017 07:10", "29.08.2017 08:00", ParkingLotType.ShortTerm, DateFormatException.class}, 	// Case-Test-id: 17
+			{"2017-08-28 07:10", "2017-08-29 08:00", ParkingLotType.ShortTerm, DateFormatException.class}, 	// Case-Test-id: 17
 			{"2018.01.10 14:28", "2018.01.10 15:33", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 18
 			{"2017.05.20 12:32", "2019.02.20 16:41", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 19
 			{"2017.13.05 10:10", "2017.13.05 11:25", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 20
@@ -48,7 +52,7 @@ public class CalculatorTestException {
 	 * @param expectedPrice float representing the service's total cost
 	 * @return
 	 */
-	public CalculatorTestException(String checkin, String checkout, ParkingLotType type, Exception expectedException) {
+	public CalculatorTestException(String checkin, String checkout, ParkingLotType type, Class<? extends Exception> expectedException) {
 		// Pass the values to parameterized attributes 
 		this.checkin = checkin;
 		this.checkout = checkout;
@@ -56,43 +60,20 @@ public class CalculatorTestException {
 		this.expectedException = expectedException;
 	}
 	
-	@Test(expected = DateFormatException.class)
-	public void testDateFormatException() {
-		// Price variable
-		float price = 0;
-		
+	/**
+	 * Method to test if a defined exception is thrown
+	 * 	
+	 * @throws DateFormatException
+	 * @throws InvalidDataException
+	 */
+	@Test
+	public void testException() throws DateFormatException, InvalidDataException {
 		// Create an object of Calculator
 		Calculator calc = new Calculator();
 		
+	    exception.expect(this.expectedException);
+	    
 		// Case of test
-		try {
-			price = calc.calculateParkingCost(this.checkin, this.checkout, this.type);
-		} catch (DateFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvalidDataException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	@Test(expected = InvalidDataException.class)
-	public void testInvalidDataException() {
-		// Price variable
-		float price = 0;
-		
-		// Create an object of Calculator
-		Calculator calc = new Calculator();
-		
-		// Case of test
-		try {
-			price = calc.calculateParkingCost(this.checkin, this.checkout, this.type);
-		} catch (DateFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvalidDataException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		calc.calculateParkingCost(this.checkin, this.checkout, this.type);
 	}
 }
