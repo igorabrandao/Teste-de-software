@@ -30,16 +30,16 @@ public class CalculatorTestException {
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] 
 		{
-			{"2017.02.29 08:10", "2017.02.29 11:24", ParkingLotType.ShortTerm, InvalidDataException.class},	// Case-Test-id: 12
-			{"2006.02.30 15:38", "2006.02.30 17:00", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 13
-			{"2011.02.31 11:00", "2011.02.31 13:10", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 14
-			{"2015.04.31 06:25", "2015.04.31 09:30", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 15
-			{"2017.08.01 16:30", "2017.07.30 19:36", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 16
-			{"2017-08-28 07:10", "2017-08-29 08:00", ParkingLotType.ShortTerm, DateFormatException.class}, 	// Case-Test-id: 17
-			{"2018.01.10 14:28", "2018.01.10 15:33", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 18
-			{"2017.05.20 12:32", "2019.02.20 16:41", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 19
-			{"2017.13.05 10:10", "2017.13.05 11:25", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 20
-			{"2017.06.32 17:19", "2017.06.32 18:34", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 21
+			{"2017.02.29 08:10", "2017.02.29 11:24", ParkingLotType.ShortTerm, InvalidDataException.class},	// Case-Test-id: 14
+			{"2006.02.30 15:38", "2006.02.30 17:00", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 15
+			{"2011.02.31 11:00", "2011.02.31 13:10", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 16
+			{"2015.04.31 06:25", "2015.04.31 09:30", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 17
+			{"2017.08.01 16:30", "2017.07.30 19:36", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 18
+			{"2017-08-28 07:10", "2017-08-29 08:00", ParkingLotType.ShortTerm, DateFormatException.class}, 	// Case-Test-id: 19
+			{"2018.01.10 14:28", "2018.01.10 15:33", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 20
+			{"2017.05.20 12:32", "2019.02.20 16:41", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 21
+			{"2017.13.05 10:10", "2017.13.05 11:25", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 22
+			{"2017.06.32 17:19", "2017.06.32 18:34", ParkingLotType.ShortTerm, InvalidDataException.class}, // Case-Test-id: 23
 		});
 	}
 	
