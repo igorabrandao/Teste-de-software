@@ -1,0 +1,33 @@
+Possibilidades
+Não triângulo
+Isósceles
+Escaleno
+Equilátero
+Exceção
+
+Não triângulos
+L1 + L2 < L3
+L1 + L3 < L2
+L2 + L3 < L1
+L1 + L2 = L3
+L1 + L3 = L2
+L2 + L3 = L1
+
+Equilátero
+L1 = L2 = L3
+
+Isósceles
+L1 = L2 & L2 != L3
+L1 = L3 & L1 != L2
+L2 = L3 & L1 != L2
+
+Escaleno
+L1 != L2 != L3
+
+Exceção
+L1 < 1
+L2 < 1
+L3 < 1
+L1 > 100
+L2 > 100
+L3 > 100
