@@ -109,7 +109,7 @@ public class Calculator {
 		}
 		
 		// Check-out validation
-		if ((1970 > checkout_year) || (checkout_year > 2017)) {
+		if ((1970 > checkout_year) || (checkout_year > 2018)) {
 			// Invalid year
 			throw new InvalidDataException(InvalidDataType.InvalidYear);
 		}

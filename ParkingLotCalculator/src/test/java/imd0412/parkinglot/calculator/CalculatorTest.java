@@ -51,7 +51,7 @@ public class CalculatorTest
 			{"2010.10.31 04:21", "2010.10.31 17:12", ParkingLotType.LongTerm, 70}, 		// Case-Test-id: 10
 			{"2016.12.31 21:30", "2016.12.31 23:15", ParkingLotType.LongTerm, 70}, 		// Case-Test-id: 11
 			{"1970.01.01 20:12", "1970.01.14 08:55", ParkingLotType.LongTerm, 550}, 	// Case-Test-id: 12
-			{"2017.12.31 23:45", "2018.01.01 02:33", ParkingLotType.LongTerm, 10}, 		// Case-Test-id: 13
+			{"2017.12.31 23:45", "2018.01.01 02:33", ParkingLotType.LongTerm, 70}, 		// Case-Test-id: 13
 			
 			// VIP
 			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.VIP, 500}, 			// Case-Test-id: 1
@@ -66,7 +66,7 @@ public class CalculatorTest
 			{"2010.10.31 04:21", "2010.10.31 17:12", ParkingLotType.VIP, 500}, 			// Case-Test-id: 10
 			{"2016.12.31 21:30", "2016.12.31 23:15", ParkingLotType.VIP, 500}, 			// Case-Test-id: 11
 			{"1970.01.01 20:12", "1970.01.14 08:55", ParkingLotType.VIP, 1000}, 		// Case-Test-id: 12
-			{"2017.12.31 23:45", "2018.01.01 02:33", ParkingLotType.VIP, 10}, 			// Case-Test-id: 13
+			{"2017.12.31 23:45", "2018.01.01 02:33", ParkingLotType.VIP, 500}, 			// Case-Test-id: 13
 		});
 	}
 	
