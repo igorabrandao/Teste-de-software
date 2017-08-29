@@ -11,12 +11,13 @@ import imd0412.parkinglot.ParkingLotType;
 import imd0412.parkinglot.exception.*;
 
 public class Calculator {
+	
 	/**
 	 * Calculates the staying cost in the parking lot.
 	 * 
 	 * @param checkin String representing check-in date. String follows the format "yyyy.MM.dd HH:mm".
 	 * @param checkout String representing check-out date. String follows the format "yyyy.MM.dd HH:mm".
-	 * @param type
+	 * @param type Enum representing the type of service provided by the airport
 	 * @return
 	 */
 	Float calculateParkingCost(String checkin, String checkout, ParkingLotType type) throws DateFormatException {
@@ -46,7 +47,6 @@ public class Calculator {
 			// Message to the user
 			String errorMsg = "\nString " + checkin
 					+ " está fora do padrão.";
-			System.out.println(errorMsg);
 			
 			// Throws the custom exception
 			throw new DateFormatException(errorMsg);
@@ -59,7 +59,6 @@ public class Calculator {
 			// Message to the user
 			String errorMsg = "\nString " + check_out
 					+ " está fora do padrão.";
-			System.out.println(errorMsg);
 			
 			// Throws the custom exception
 			throw new DateFormatException(errorMsg);
