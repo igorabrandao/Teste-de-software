@@ -24,10 +24,6 @@ public class Calculator {
 	Float calculateParkingCost(String checkin, String checkout, ParkingLotType type) throws DateFormatException, 
 		InvalidDataException {
 		
-		// Calendar instance
-		Calendar checkinCalendar = Calendar.getInstance();
-		Calendar checkoutCalendar = Calendar.getInstance();
-		
 		// Local variables
 		Date check_in = null;
 		Date check_out = null;
@@ -73,22 +69,17 @@ public class Calculator {
 		// ==========================================================================================
 		// DATES VALIDATION HANDLER
 		// ==========================================================================================
-				
-		// Set the calendar instance with check-in and check-out dates
-		checkinCalendar.setTime(check_in);
-		checkoutCalendar.setTime(check_out);
 		
 		// Split the time into sections
-		int checkin_year = checkinCalendar.get(Calendar.YEAR);
-		int checkin_month = checkinCalendar.get(Calendar.MONTH);
-		// int checkin_day = checkinCalendar.get(Calendar.DAY_OF_MONTH);
-		int checkin_day = Integer.parseInt(checkin.substring(8, 10)); // Note: If use Calendar.DAY_OF_MONTH February 29 and 30 will be converted to 1 and 2 respectively 
+		int checkin_year = Integer.parseInt(checkin.substring(0, 4));
+		int checkin_month = Integer.parseInt(checkin.substring(5, 7));
+		int checkin_day = Integer.parseInt(checkin.substring(8, 10)); 
 		boolean isCheckinLeapYear = ( (checkin_year % 400 == 0) || ((checkin_year % 4 == 0) && (checkin_year % 100 != 0)) );
 		
-		int checkout_year = checkoutCalendar.get(Calendar.YEAR);
-		int checkout_month = checkoutCalendar.get(Calendar.MONTH);
-		// int checkout_day = checkoutCalendar.get(Calendar.DAY_OF_MONTH);
-		int checkout_day = Integer.parseInt(checkout.substring(8, 10));
+		
+		int checkout_year = Integer.parseInt(checkout.substring(0, 4));
+		int checkout_month = Integer.parseInt(checkout.substring(5, 7));
+		int checkout_day = Integer.parseInt(checkout.substring(8, 10)); 
 		boolean isCheckoutLeapYear = ( (checkout_year % 400 == 0) || ((checkout_year % 4 == 0) && (checkout_year % 100 != 0)) );
 		
 		// Check-in validation
