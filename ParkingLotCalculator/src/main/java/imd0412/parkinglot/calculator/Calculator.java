@@ -3,6 +3,7 @@ package imd0412.parkinglot.calculator;
 import static org.apache.commons.lang3.time.DurationFormatUtils.formatDuration;
 
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Matcher;
 
@@ -22,6 +23,10 @@ public class Calculator {
 	 */
 	Float calculateParkingCost(String checkin, String checkout, ParkingLotType type) throws DateFormatException, 
 		InvalidDataException {
+		
+		// Calendar instance
+		Calendar checkinCalendar = Calendar.getInstance();
+		Calendar checkoutCalendar = Calendar.getInstance();
 		
 		// Local variables
 		Date check_in = null;
@@ -68,6 +73,67 @@ public class Calculator {
 		// ==========================================================================================
 		// DATES VALIDATION HANDLER
 		// ==========================================================================================
+				
+		// Set the calendar instance with check-in and check-out dates
+		checkinCalendar.setTime(check_in);
+		checkoutCalendar.setTime(check_out);
+		
+		// Split the time into sections
+		int checkin_year = checkinCalendar.get(Calendar.YEAR);
+		int checkin_month = checkinCalendar.get(Calendar.MONTH);
+		// int checkin_day = checkinCalendar.get(Calendar.DAY_OF_MONTH);
+		int checkin_day = Integer.parseInt(checkin.substring(8, 10)); // Note: If use Calendar.DAY_OF_MONTH February 29 and 30 will be converted to 1 and 2 respectively 
+		boolean isCheckinLeapYear = ( (checkin_year % 400 == 0) || ((checkin_year % 4 == 0) && (checkin_year % 100 != 0)) );
+		
+		int checkout_year = checkoutCalendar.get(Calendar.YEAR);
+		int checkout_month = checkoutCalendar.get(Calendar.MONTH);
+		// int checkout_day = checkoutCalendar.get(Calendar.DAY_OF_MONTH);
+		int checkout_day = Integer.parseInt(checkout.substring(8, 10));
+		boolean isCheckoutLeapYear = ( (checkout_year % 400 == 0) || ((checkout_year % 4 == 0) && (checkout_year % 100 != 0)) );
+		
+		// Check-in validation
+		if ((1970 > checkin_year) || (checkin_year > 2017)) {
+			// Invalid year
+			throw new InvalidDataException(InvalidDataType.InvalidYear);
+		}
+		else if ((1 > checkin_month) || (checkin_month > 12)) {
+			// Invalid month
+			throw new InvalidDataException(InvalidDataType.InvalidMonth);
+		}
+		else if ((1 > checkin_day) || (checkin_day > 31)) {
+			// Invalid month
+			throw new InvalidDataException(InvalidDataType.InvalidDay);
+		}
+		else if ( (checkin_day == 29 && checkin_month == 2) && isCheckinLeapYear == false ) {
+			// In this case, the 29th February doesn't exists
+			throw new InvalidDataException(InvalidDataType.NonexistentDate);
+		}
+		else if ( (checkin_day == 30 && checkin_month == 2) ) {
+			// In this case, the 30th February never exists
+			throw new InvalidDataException(InvalidDataType.NonexistentDate);
+		}
+		
+		// Check-out validation
+		if ((1970 > checkout_year) || (checkout_year > 2017)) {
+			// Invalid year
+			throw new InvalidDataException(InvalidDataType.InvalidYear);
+		}
+		else if ((1 > checkout_month) || (checkout_month > 12)) {
+			// Invalid month
+			throw new InvalidDataException(InvalidDataType.InvalidMonth);
+		}
+		else if ((1 > checkout_day) || (checkout_day > 31)) {
+			// Invalid month
+			throw new InvalidDataException(InvalidDataType.InvalidDay);
+		}
+		else if ( (checkout_day == 29 && checkout_month == 2) && isCheckoutLeapYear == false ) {
+			// In this case, the 29th February doesn't exists
+			throw new InvalidDataException(InvalidDataType.NonexistentDate);
+		}
+		else if ( (checkout_day == 30 && checkout_day == 2) ) {
+			// In this case, the 30th February never exists
+			throw new InvalidDataException(InvalidDataType.NonexistentDate);
+		}
 		
 		// ==========================================================================================
 		// DATE DIFFERENCE CALCULATOR HANDLER
@@ -75,6 +141,11 @@ public class Calculator {
 		
 		// Calculates the difference in milliseconds
 		long diff = check_out.getTime() - check_in.getTime();
+		
+		// Check if check-in came after check-out
+		if ( diff < 0 ) {
+			throw new InvalidDataException(InvalidDataType.CheckinGreaterThanCheckout);
+		}
 
 		// Converts the difference into date type
 		String duration = formatDuration(diff, Constants.VALID_DATE_FORMAT);
