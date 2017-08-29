@@ -89,19 +89,19 @@ public class Calculator {
 		// Calculate the price for each use type
 		// ==========================================================================================
 		
+		System.out.println("\nDiferença: ");
+		System.out.println("\tAno\t" + diff_year);
+		System.out.println("\tMês\t" + diff_month);
+		System.out.println("\tDia\t" + diff_day);
+		System.out.println("\tHora\t" + diff_hour);
+		System.out.println("\tMin\t" + diff_minute);
+		
 		// Check the use type
 		switch (type) {
 			// ==========================================================================================
 			// (I) ShortTerm: use just for a few hours
 			// ==========================================================================================
 			case ShortTerm:
-				
-				System.out.println("\nDiferença: ");
-				System.out.println("\tAno\t" + diff_year);
-				System.out.println("\tMês\t" + diff_month);
-				System.out.println("\tDia\t" + diff_day);
-				System.out.println("\tHora\t" + diff_hour);
-				System.out.println("\tMin\t" + diff_minute);
 				
 				// Calculation of short term tax (business rule)
 				
@@ -153,7 +153,7 @@ public class Calculator {
 					calculated_price += 8;
 				}
 				else if (diff_minute > 0 && diff_hour > 0) {
-					// The customer already paid the first our, so this is an extra hour
+					// The customer already paid the first hour, so this is an extra hour
 					calculated_price += 2;
 				}
 				
@@ -162,6 +162,62 @@ public class Calculator {
 			// (II) LongTerm: use for more than few hours, maybe some days
 			// ==========================================================================================
 			case LongTerm:
+				
+				// Calculation of long term tax (business rule)
+				
+				// Years (the tax applied to an entire year)
+				calculated_price += ((diff_year * 12) * 500);
+				
+				// Months (monthly tax of R$500,00)
+				calculated_price += (diff_month * 500);
+				
+				// Days
+				if (diff_day > 7) {
+					// The first day costs R$70,00
+					calculated_price += 70;
+					
+					// In the first week, each day tax costs R$50,00
+					calculated_price += (6 * 50);
+					
+					// After the first week, the tax cost lows to R$30,00
+					calculated_price += ((diff_day - 7) * 30);
+				}
+				else if (diff_day > 0) {
+					// The first day costs R$70,00
+					calculated_price += 70;
+					
+					// In the first week, each day tax costs R$50,00
+					calculated_price += ((diff_day - 1) * 50);
+				}
+				
+				// Hours
+				if (diff_hour > 0 && diff_day == 0) {
+					// In this case, the customer stayed less than 1 day
+					calculated_price += 70;
+				}
+				else if (diff_hour > 0 && diff_day > 7) {
+					// The customer already paid the first day, so this is an extra day (after 1 week)
+					calculated_price += 30;
+				}
+				else if (diff_hour > 0 && diff_day > 0) {
+					// The customer already paid the first day, so this is an extra day
+					calculated_price += 50;
+				}
+				
+				// Minutes
+				if (diff_minute > 0 && diff_day == 0 && diff_hour == 0) {
+					// In this case, the customer stayed less than 1 day
+					calculated_price += 70;
+				}
+				else if (diff_minute > 0 && diff_day > 7 && diff_hour == 0) {
+					// The customer already paid the first day, so this is an extra day (after 1 week)
+					calculated_price += 30;
+				}
+				else if (diff_minute > 0 && diff_day > 0 && diff_hour == 0) {
+					// The customer already paid the first day, so this is an extra day
+					calculated_price += 50;
+				}
+				
 				break;
 			// ==========================================================================================
 			// (III) VIP: for whom looking for comfort and security
