@@ -99,8 +99,12 @@ public class Calculator {
 			// In this case, the 29th February doesn't exists
 			throw new InvalidDataException(InvalidDataType.NonexistentDate);
 		}
-		else if ( (checkin_day == 30 && checkin_month == 2) ) {
+		else if ( (checkin_day >= 30 && checkin_month == 2) ) {
 			// In this case, the 30th February never exists
+			throw new InvalidDataException(InvalidDataType.NonexistentDate);
+		}
+		else if ( (checkin_day == 31 && (checkin_month == 4 || checkin_month == 6 || checkin_month == 9 || checkin_month == 11)) ) {
+			// These months doesn't have 31st
 			throw new InvalidDataException(InvalidDataType.NonexistentDate);
 		}
 		
@@ -121,8 +125,12 @@ public class Calculator {
 			// In this case, the 29th February doesn't exists
 			throw new InvalidDataException(InvalidDataType.NonexistentDate);
 		}
-		else if ( (checkout_day == 30 && checkout_day == 2) ) {
+		else if ( (checkout_day >= 30 && checkout_month == 2) ) {
 			// In this case, the 30th February never exists
+			throw new InvalidDataException(InvalidDataType.NonexistentDate);
+		}
+		else if ( (checkout_day == 31 && (checkout_month == 4 || checkout_month == 6 || checkout_month == 9 || checkout_month == 11)) ) {
+			// These months doesn't have 31st
 			throw new InvalidDataException(InvalidDataType.NonexistentDate);
 		}
 		
