@@ -23,19 +23,29 @@ public class CalculatorTest
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] 
 		{
-			// EQUILATERAL
-			/*{ 6,6,6, TriangleType.EQUILATERAL },
+			// SHORTERM
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 1
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 2
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 3
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 4
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 5
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 6
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 7
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 8
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 9
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 10
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 11
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 12
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 13
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 14
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 15
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 16
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 17
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 18
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 19
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 20
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 21
 			
-			// ISOCELES
-			{ 5,5,4, TriangleType.ISOCELES },
-			{ 5,3,4, TriangleType.ISOCELES },
-			{ 4,5,5, TriangleType.ISOCELES },
-			
-			// SCALENE
-			{ 5,4,3, TriangleType.SCALENE }, // Case-Test-id: A
-			
-			// NOT TRIANGLE
-			{ 25,3,5, TriangleType.NOT_TRIANGLE }*/
 		});
 	}
 	
