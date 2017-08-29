@@ -23,29 +23,44 @@ public class CalculatorTest
 	public static Collection<Object[]> data() {
 		return Arrays.asList(new Object[][] 
 		{
-			// SHORTERM
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 1
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 2
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 3
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 4
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 5
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 6
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 7
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 8
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 9
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 10
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 11
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 12
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 13
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 14
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 15
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 16
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 17
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 18
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 19
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 20
-			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 0}, // Case-Test-id: 21
+			// SHORT-TERM
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.ShortTerm, 606},	// Case-Test-id: 1
+			{"2015.01.28 17:24", "2015.01.28 18:49", ParkingLotType.ShortTerm, 10}, 	// Case-Test-id: 2
+			{"2016.02.28 09:45", "2016.02.28 15:38", ParkingLotType.ShortTerm, 18}, 	// Case-Test-id: 3
+			{"2017.02.28 10:32", "2017.03.01 11:30", ParkingLotType.ShortTerm, 112}, 	// Case-Test-id: 4
+			{"2014.05.29 19:05", "2014.05.29 21:54", ParkingLotType.ShortTerm, 12}, 	// Case-Test-id: 5
+			{"2012.02.29 03:36", "2012.02.29 05:28", ParkingLotType.ShortTerm, 10}, 	// Case-Test-id: 6
+			{"2017.03.30 08:10", "2017.03.30 10:15", ParkingLotType.ShortTerm, 12}, 	// Case-Test-id: 7
+			{"2017.04.30 16:27", "2017.04.30 18:03", ParkingLotType.ShortTerm, 10}, 	// Case-Test-id: 8
+			{"2016.12.30 07:09", "2017.01.10 20:01", ParkingLotType.ShortTerm, 1030}, 	// Case-Test-id: 9
+			{"2010.10.31 04:21", "2010.10.31 17:12", ParkingLotType.ShortTerm, 32}, 	// Case-Test-id: 10
+			{"2016.12.31 21:30", "2016.12.31 23:15", ParkingLotType.ShortTerm, 10}, 	// Case-Test-id: 11
 			
+			// LONG-TERM
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.LongTerm, 370},		// Case-Test-id: 1
+			{"2015.01.28 17:24", "2015.01.28 18:49", ParkingLotType.LongTerm, 70}, 		// Case-Test-id: 2
+			{"2016.02.28 09:45", "2016.02.28 15:38", ParkingLotType.LongTerm, 70}, 		// Case-Test-id: 3
+			{"2017.02.28 10:32", "2017.03.01 11:30", ParkingLotType.LongTerm, 120}, 	// Case-Test-id: 4
+			{"2014.05.29 19:05", "2014.05.29 21:54", ParkingLotType.LongTerm, 70}, 		// Case-Test-id: 5
+			{"2012.02.29 03:36", "2012.02.29 05:28", ParkingLotType.LongTerm, 70}, 		// Case-Test-id: 6
+			{"2017.03.30 08:10", "2017.03.30 10:15", ParkingLotType.LongTerm, 70}, 		// Case-Test-id: 7
+			{"2017.04.30 16:27", "2017.04.30 18:03", ParkingLotType.LongTerm, 70}, 		// Case-Test-id: 8
+			{"2016.12.30 07:09", "2017.01.10 20:01", ParkingLotType.LongTerm, 520}, 	// Case-Test-id: 9
+			{"2010.10.31 04:21", "2010.10.31 17:12", ParkingLotType.LongTerm, 70}, 		// Case-Test-id: 10
+			{"2016.12.31 21:30", "2016.12.31 23:15", ParkingLotType.LongTerm, 70}, 		// Case-Test-id: 11
+			
+			// VIP
+			{"2017.02.15 10:52", "2017.02.21 16:35", ParkingLotType.VIP, 500}, 			// Case-Test-id: 1
+			{"2015.01.28 17:24", "2015.01.28 18:49", ParkingLotType.VIP, 500}, 			// Case-Test-id: 2
+			{"2016.02.28 09:45", "2016.02.28 15:38", ParkingLotType.VIP, 500}, 			// Case-Test-id: 3
+			{"2017.02.28 10:32", "2017.03.01 11:30", ParkingLotType.VIP, 500}, 			// Case-Test-id: 4
+			{"2014.05.29 19:05", "2014.05.29 21:54", ParkingLotType.VIP, 500}, 			// Case-Test-id: 5
+			{"2012.02.29 03:36", "2012.02.29 05:28", ParkingLotType.VIP, 500}, 			// Case-Test-id: 6
+			{"2017.03.30 08:10", "2017.03.30 10:15", ParkingLotType.VIP, 500}, 			// Case-Test-id: 7
+			{"2017.04.30 16:27", "2017.04.30 18:03", ParkingLotType.VIP, 500}, 			// Case-Test-id: 8
+			{"2016.12.30 07:09", "2017.01.10 20:01", ParkingLotType.VIP, 900}, 			// Case-Test-id: 9
+			{"2010.10.31 04:21", "2010.10.31 17:12", ParkingLotType.VIP, 500}, 			// Case-Test-id: 10
+			{"2016.12.31 21:30", "2016.12.31 23:15", ParkingLotType.VIP, 500}, 			// Case-Test-id: 11
 		});
 	}
 	

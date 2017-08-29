@@ -88,12 +88,12 @@ public class Calculator {
 		// Calculate the price for each use type
 		// ==========================================================================================
 		
-		System.out.println("\nDiferença: ");
+		/*System.out.println("\nDiferença: ");
 		System.out.println("\tAno\t" + diff_year);
 		System.out.println("\tMês\t" + diff_month);
 		System.out.println("\tDia\t" + diff_day);
 		System.out.println("\tHora\t" + diff_hour);
-		System.out.println("\tMin\t" + diff_minute);
+		System.out.println("\tMin\t" + diff_minute);*/
 		
 		// Check the use type
 		switch (type) {
@@ -244,6 +244,9 @@ public class Calculator {
 				
 				break;
 		}
+
+		System.out.println("The calculated price is:\t R$" + calculated_price);
+		
 		
 		// Return the calculated price
 		return calculated_price;
