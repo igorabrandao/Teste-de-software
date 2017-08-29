@@ -20,7 +20,8 @@ public class Calculator {
 	 * @param type Enum representing the type of service provided by the airport
 	 * @return
 	 */
-	Float calculateParkingCost(String checkin, String checkout, ParkingLotType type) throws DateFormatException {
+	Float calculateParkingCost(String checkin, String checkout, ParkingLotType type) throws DateFormatException, 
+		InvalidDataException {
 		
 		// Local variables
 		Date check_in = null;
@@ -63,6 +64,10 @@ public class Calculator {
 			// Throws the custom exception
 			throw new DateFormatException(errorMsg);
 		}
+		
+		// ==========================================================================================
+		// DATES VALIDATION HANDLER
+		// ==========================================================================================
 		
 		// ==========================================================================================
 		// DATE DIFFERENCE CALCULATOR HANDLER
@@ -245,9 +250,6 @@ public class Calculator {
 				break;
 		}
 
-		System.out.println("The calculated price is:\t R$" + calculated_price);
-		
-		
 		// Return the calculated price
 		return calculated_price;
 	}

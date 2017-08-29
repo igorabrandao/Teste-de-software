@@ -1,7 +1,7 @@
 package imd0412.parkinglot.calculator;
 
 import imd0412.parkinglot.ParkingLotType;
-import imd0412.parkinglot.exception.DateFormatException;
+import imd0412.parkinglot.exception.*;
 
 public class CalculatorDrive {
 
@@ -19,9 +19,10 @@ public class CalculatorDrive {
 			
 			System.out.println("The calculated price is:\t R$" + price);
 		} catch (DateFormatException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		catch (InvalidDataException e) {
+			e.printStackTrace();
+		}
 	}
 }

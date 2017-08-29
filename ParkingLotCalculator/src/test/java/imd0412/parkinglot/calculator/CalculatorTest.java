@@ -8,7 +8,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import imd0412.parkinglot.ParkingLotType;
-import imd0412.parkinglot.exception.DateFormatException;
+import imd0412.parkinglot.exception.*;
 
 @RunWith(value = Parameterized.class)
 public class CalculatorTest
@@ -94,6 +94,9 @@ public class CalculatorTest
 		try {
 			price = calc.calculateParkingCost(this.checkin, this.checkout, this.type);
 		} catch (DateFormatException e) {
+			e.printStackTrace();
+		}
+		catch (InvalidDataException e) {
 			e.printStackTrace();
 		}
 		
