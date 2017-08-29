@@ -165,12 +165,6 @@ public class Calculator {
 				
 				// Calculation of long term tax (business rule)
 				
-				// Years (the tax applied to an entire year)
-				calculated_price += ((diff_year * 12) * 500);
-				
-				// Months (monthly tax of R$500,00)
-				calculated_price += (diff_month * 500);
-				
 				// Days
 				if (diff_day > 7) {
 					// The first day costs R$70,00
@@ -223,6 +217,32 @@ public class Calculator {
 			// (III) VIP: for whom looking for comfort and security
 			// ==========================================================================================
 			case VIP:
+				
+				// Calculation of long term tax (business rule)
+				
+				// Days
+				if (diff_day > 14) {
+					// The first week costs R$500,00
+					calculated_price += 500;
+					
+					// In the second week, each day tax costs R$100,00
+					calculated_price += (7 * 100);
+					
+					// After the second week, the tax cost lows to R$80,00
+					calculated_price += ((diff_day - 14) * 80);
+				}
+				else if (diff_day > 7) {
+					// The first week costs R$500,00
+					calculated_price += 500;
+					
+					// The next days cost R$100,00
+					calculated_price += ((diff_day - 7) * 100);
+				}
+				else {
+					// The first week costs R$500,00
+					calculated_price += 500;
+				}
+				
 				break;
 		}
 		

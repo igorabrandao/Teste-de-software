@@ -15,7 +15,8 @@ public class CalculatorDrive {
 		
 		// Run some instances of Calculator
 		try {
-			price = calc.calculateParkingCost("2017.08.28 12:30", "2017.08.31 07:10", ParkingLotType.ShortTerm);
+			//price = calc.calculateParkingCost("2017.08.28 12:30", "2017.08.31 07:10", ParkingLotType.ShortTerm);
+			price = calc.calculateParkingCost("2016.05.20 12:30", "2017.08.31 07:10", ParkingLotType.LongTerm);
 			
 			System.out.println("The calculated price is:\t R$" + price);
 		} catch (DateFormatException e) {
